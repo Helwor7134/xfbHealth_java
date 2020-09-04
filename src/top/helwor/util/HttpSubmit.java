@@ -32,7 +32,7 @@ public class HttpSubmit {
             httpPost.addHeader("Referer", "http://61.163.246.8:82/PPage/ComePage");
             httpPost.addHeader("Accept-Encoding", "gzip, deflate");
             httpPost.addHeader("Accept-Language", "zh-CN,en-US;q=0.8");
-            httpPost.addHeader("Cookie", " ASP.NET_SessionId=dhcrzfitxnglfblu3hfl22zk; imeiticket=eb406c03fcb10eb7b8e17db9a512a77d; sourcetypeticket=100AB90165AF40EDB65BB0EE3B07681B");
+            httpPost.addHeader("Cookie", "这里换成你自己的");
             //创建请求内容
             String jsonStr = "phone=15136568950&jqqx=%E9%83%91%E5%B7%9E%E5%B8%82%E9%87%91%E6%B0%B4%E5%8C%BA&jqqxbz=&cxzz=1000000000&mqzz=0&whpl=0&yqryjc=0&backdate=&zzbz=&json=true";
             StringEntity entity = new StringEntity(jsonStr);
