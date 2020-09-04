@@ -34,7 +34,7 @@ public class HttpSubmit {
             httpPost.addHeader("Accept-Language", "zh-CN,en-US;q=0.8");
             httpPost.addHeader("Cookie", "这里换成你自己的");
             //创建请求内容
-            String jsonStr = "phone=15136568950&jqqx=%E9%83%91%E5%B7%9E%E5%B8%82%E9%87%91%E6%B0%B4%E5%8C%BA&jqqxbz=&cxzz=1000000000&mqzz=0&whpl=0&yqryjc=0&backdate=&zzbz=&json=true";
+            String jsonStr = "这里就是你要提交的信息内容，也要换成自己的";
             StringEntity entity = new StringEntity(jsonStr);
             httpPost.setEntity(entity);
             response = httpClient.execute(httpPost);
