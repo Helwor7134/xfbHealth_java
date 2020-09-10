@@ -14,7 +14,7 @@ public class Home {
          */
         LoginInfo loginInfo = new LoginInfo("电话号码","现居住地","cookie信息");
 
-        String result = new HttpSubmit(Api.HEALTH_URL,loginInfo).doPost();
+        String result = new HttpSubmit(loginInfo).doPost();
 
         System.out.println(result);
     }

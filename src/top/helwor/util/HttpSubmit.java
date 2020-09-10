@@ -12,7 +12,6 @@ import java.io.IOException;
 
 public class HttpSubmit {
 
-    private String url;
     private String phone;
     private String address;
     private String cookie;
@@ -25,15 +24,13 @@ public class HttpSubmit {
      * @param address 现居住地
      * @param cookie cookie信息
      */
-    public HttpSubmit(String url, String phone, String address, String cookie) {
-        this.url = url;
+    public HttpSubmit(String phone, String address, String cookie) {
         this.phone = phone;
         this.address = address;
         this.cookie = cookie;
     }
 
-    public HttpSubmit(String url, LoginInfo loginInfo) {
-        this.url = url;
+    public HttpSubmit(LoginInfo loginInfo) {
         this.phone = loginInfo.getPhone();
         this.address = loginInfo.getAddress();
         this.cookie = loginInfo.getCookie();
@@ -47,7 +44,7 @@ public class HttpSubmit {
         CloseableHttpResponse response = null;
         String result = "";
         try{
-            HttpPost httpPost = new HttpPost(url);
+            HttpPost httpPost = new HttpPost(Api.HEALTH_URL);
             httpPost.addHeader("Host", "61.163.246.8:82");
             httpPost.addHeader("Connection", "keep-alive");
             httpPost.addHeader("Pragma", "no-cache");
