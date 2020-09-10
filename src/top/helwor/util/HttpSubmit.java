@@ -13,26 +13,42 @@ import java.io.IOException;
 public class HttpSubmit {
 
     private String url;
-    private String bodyJson;
+    private String phone;
+    private String address;
     private String cookie;
 
-    public HttpSubmit() {
-    }
+    public HttpSubmit() {}
 
-    public HttpSubmit(String url, String bodyJson, String cookie) {
+    /**
+     * @param url 接口地址
+     * @param phone 电话号码
+     * @param address 现居住地
+     * @param cookie cookie信息
+     */
+    public HttpSubmit(String url, String phone, String address, String cookie) {
         this.url = url;
-        this.bodyJson = bodyJson;
+        this.phone = phone;
+        this.address = address;
         this.cookie = cookie;
     }
 
-    // 发送请求
+    public HttpSubmit(String url, LoginInfo loginInfo) {
+        this.url = url;
+        this.phone = loginInfo.getPhone();
+        this.address = loginInfo.getAddress();
+        this.cookie = loginInfo.getCookie();
+    }
+
+
+
     public String doPost(){
-        //创建httpClient对象
+        // 准备请求体数据
+        String jsonBody = JsonFormat.toBodyJson(phone,address);
+
         CloseableHttpClient httpClient = HttpClients.createDefault();
         CloseableHttpResponse response = null;
         String result = "";
         try{
-            //创建http请求
             HttpPost httpPost = new HttpPost(url);
             httpPost.addHeader("Host", "61.163.246.8:82");
             httpPost.addHeader("Connection", "keep-alive");
@@ -47,13 +63,11 @@ public class HttpSubmit {
             httpPost.addHeader("Accept-Encoding", "gzip, deflate");
             httpPost.addHeader("Accept-Language", "zh-CN,en-US;q=0.8");
             httpPost.addHeader("Cookie", cookie);
-            //创建请求内容
-            String jsonStr = bodyJson;
+            String jsonStr = jsonBody;
             StringEntity entity = new StringEntity(jsonStr);
             httpPost.setEntity(entity);
             response = httpClient.execute(httpPost);
             result = EntityUtils.toString(response.getEntity(),"utf-8");
-            // 输出返回信息
         }catch (Exception e){
             e.printStackTrace();
         }finally {
