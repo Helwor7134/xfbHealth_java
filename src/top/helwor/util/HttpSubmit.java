@@ -39,8 +39,6 @@ public class HttpSubmit {
         this.cookie = loginInfo.getCookie();
     }
 
-
-
     public String doPost(){
         // 准备请求体数据
         String jsonBody = JsonFormat.toBodyJson(phone,address);
