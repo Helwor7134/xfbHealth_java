@@ -3,7 +3,7 @@ package top.helwor.entity;
 public class SubmitResponse {
 
     /**
-     * 提交请求后返回的数据，如果未提交成功 Msg 这一项的值为-404
+     * 提交请求后返回的数据，如果未提交成功 Msg 这一项的值为-404，成功值为null
      * IsSucceed : true
      * Msg : null
      * RMsg : null
