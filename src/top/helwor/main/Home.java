@@ -1,7 +1,6 @@
 package top.helwor.main;
 
 import top.helwor.entity.LoginInfo;
-import top.helwor.util.Api;
 import top.helwor.util.HttpSubmit;
 
 public class Home {

@@ -19,7 +19,6 @@ public class HttpSubmit {
     public HttpSubmit() {}
 
     /**
-     * @param url 接口地址
      * @param phone 电话号码
      * @param address 现居住地
      * @param cookie cookie信息
